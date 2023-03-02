@@ -1,4 +1,4 @@
-from constants import EXTENSIONS, UNKNOWN
+from constants import EXTENSIONS
 import re
 
 
@@ -40,6 +40,7 @@ def find_audio(list_of_file_paths: list) -> list:
         if selection_rule:
             file_audio1.append(file_path)
     return file_audio1
+
 
 def find_documents(list_of_file_paths: list) -> list:
     file_documents1 = []
