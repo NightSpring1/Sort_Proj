@@ -23,7 +23,8 @@ def normalize(input_string: str) -> str:
     return output_string
 
 
-def normalize_files_in_folder(path) -> None:
+def normalize_files_in_folder(path) -> list:
+    filenames = []
     for file in os.listdir(path):
         if path.joinpath(file).is_dir():
             continue
@@ -31,5 +32,7 @@ def normalize_files_in_folder(path) -> None:
         normalized_file_name = normalize(cut_file[0]) + cut_file[1]
         try:
             path.joinpath(file).rename(path.joinpath(normalized_file_name))
+            filenames.append(normalized_file_name)
         except FileExistsError:
             print(f'Error occurred during rename of {file}')
+    return filenames

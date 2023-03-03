@@ -7,12 +7,12 @@ def get_root_path_from_arg():
     arg_path = sys.argv[1::]
     if len(arg_path) != 1:
         print(f"sort.py received {len(arg_path)} parameters. Expected 1.")
-        sys.exit()
+        return None
     path = Path(arg_path[0])
     print(path.absolute())
     if not path.is_dir():
         print(f'{path} is not a folder.')
-        sys.exit()
+        return None
     return path
 
 
