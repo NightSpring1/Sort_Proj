@@ -1,9 +1,9 @@
-from constants import EXTENSIONS, UNKNOWN
-from conf_functions import get_root_path_from_arg, get_all_files
+from clean_folder.constants import EXTENSIONS, UNKNOWN
+from clean_folder.conf_functions import get_root_path_from_arg, get_all_files
 from sort_functions import check_destination_folders, find_filetype, move_files, clean_empty_folders
-from norm_functions import normalize_files_in_folder
-from arch_functions import unpack_archives
-from stat_functions import report_dict
+from clean_folder.norm_functions import normalize_files_in_folder
+from clean_folder.arch_functions import unpack_archives
+from stat_functions import report
 
 if __name__ == '__main__':
     root_path = get_root_path_from_arg()
@@ -31,8 +31,8 @@ if __name__ == '__main__':
         # End of archives section
 
         # Report
-        report_dict(stat_dict)
-        # report(root_path)
+        # report_dict(stat_dict)
+        report(root_path)
 
         # Cleanup
         clean_empty_folders(root_path)

@@ -1,7 +1,8 @@
 import os
+import pathlib
 import shutil
 import re
-from constants import EXTENSIONS, UNKNOWN
+from clean_folder.constants import EXTENSIONS, UNKNOWN
 
 
 def find_filetype(list_of_file_paths: list, file_type: str) -> list:
@@ -14,7 +15,7 @@ def find_filetype(list_of_file_paths: list, file_type: str) -> list:
     return file_type_paths
 
 
-def check_destination_folders(path) -> None:
+def check_destination_folders(path: pathlib.WindowsPath) -> None:
     if not path.joinpath(UNKNOWN).is_dir():
         os.mkdir(path.joinpath(UNKNOWN))
     for folder in EXTENSIONS:
@@ -22,7 +23,7 @@ def check_destination_folders(path) -> None:
             os.mkdir(path.joinpath(folder))
 
 
-def clean_empty_folders(path):
+def clean_empty_folders(path: pathlib.WindowsPath) -> None:
     for iter_folder in path.iterdir():
         if iter_folder.is_dir():
             clean_empty_folders(iter_folder)
@@ -30,7 +31,7 @@ def clean_empty_folders(path):
                 os.rmdir(iter_folder)
 
 
-def move_files(list_of_files, destination_path, folder_name):
+def move_files(list_of_files: list, destination_path: pathlib.WindowsPath, folder_name: str):
     destination_path = destination_path.joinpath(folder_name)
     for file_path in list_of_files:
         try:
@@ -39,7 +40,7 @@ def move_files(list_of_files, destination_path, folder_name):
             resolve_same_name_error(file_path, destination_path)
 
 
-def resolve_same_name_error(f_path, d_path):
+def resolve_same_name_error(f_path: pathlib.WindowsPath, d_path: pathlib.WindowsPath) -> None:
     for j in range(1, 99):
         cut_name = file_name_separate(f_path.name)
         new_file_name = cut_name[0] + '_' + str(j) + cut_name[1]
@@ -49,7 +50,7 @@ def resolve_same_name_error(f_path, d_path):
     shutil.move(f_path, d_path)
 
 
-def file_name_separate(file_name):
+def file_name_separate(file_name: str):
     last_dot_index = file_name.rfind('.')
     if last_dot_index == -1:
         last_dot_index = len(file_name)

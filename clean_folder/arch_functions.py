@@ -16,4 +16,4 @@ def unpack_archives(archives_path) -> None:
         except pyunpack.PatoolError:
             print(f"Error: Archive {archive.name} is not an archive.")
         except FileExistsError:
-            pass
+            print(f'Archive {archive.name} already unpacked.')

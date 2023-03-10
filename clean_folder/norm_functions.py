@@ -1,4 +1,5 @@
 import os
+import pathlib
 import string
 from constants import CYRILLIC_SYMBOLS, TRANSLITERATION
 from sort_functions import file_name_separate
@@ -23,7 +24,7 @@ def normalize(input_string: str) -> str:
     return output_string
 
 
-def normalize_files_in_folder(path) -> list:
+def normalize_files_in_folder(path: pathlib.WindowsPath) -> list:
     filenames = []
     for file in os.listdir(path):
         if path.joinpath(file).is_dir():
