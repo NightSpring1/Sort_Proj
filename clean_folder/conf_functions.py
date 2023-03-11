@@ -1,6 +1,6 @@
+from clean_folder import *
 import sys
 from pathlib import Path
-from constants import EXTENSIONS, UNKNOWN
 
 
 def get_root_path_from_arg():

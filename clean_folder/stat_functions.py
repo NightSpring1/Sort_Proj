@@ -1,5 +1,4 @@
-from clean_folder.constants import EXTENSIONS, UNKNOWN
-from sort_functions import file_name_separate
+from clean_folder import *
 import os
 
 

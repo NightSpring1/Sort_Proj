@@ -1,7 +1,5 @@
-import os
+from clean_folder import *
 import pyunpack
-from pyunpack import Archive
-from sort_functions import file_name_separate
 
 
 def unpack_archives(archives_path) -> None:
@@ -12,7 +10,7 @@ def unpack_archives(archives_path) -> None:
             continue
         try:
             os.mkdir(archive_dir)
-            Archive(archive).extractall(archive_dir)
+            pyunpack.Archive(archive).extractall(archive_dir)
         except pyunpack.PatoolError:
             print(f"Error: Archive {archive.name} is not an archive.")
         except FileExistsError:

@@ -1,11 +1,7 @@
-from clean_folder.constants import EXTENSIONS, UNKNOWN
-from clean_folder.conf_functions import get_root_path_from_arg, get_all_files
-from sort_functions import check_destination_folders, find_filetype, move_files, clean_empty_folders
-from clean_folder.norm_functions import normalize_files_in_folder
-from clean_folder.arch_functions import unpack_archives
-from stat_functions import report
+from clean_folder import *
 
-if __name__ == '__main__':
+
+def sort_process():
     root_path = get_root_path_from_arg()
     if root_path is not None:
         check_destination_folders(root_path)

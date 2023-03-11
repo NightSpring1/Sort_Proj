@@ -1,8 +1,7 @@
+from clean_folder import *
 import os
 import pathlib
 import string
-from constants import CYRILLIC_SYMBOLS, TRANSLITERATION
-from sort_functions import file_name_separate
 
 TRANS = {}
 for cyr, lat in zip(CYRILLIC_SYMBOLS, TRANSLITERATION):

@@ -1,8 +1,8 @@
+from clean_folder import *
 import os
 import pathlib
 import shutil
 import re
-from clean_folder.constants import EXTENSIONS, UNKNOWN
 
 
 def find_filetype(list_of_file_paths: list, file_type: str) -> list:
