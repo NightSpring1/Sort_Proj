@@ -1,2 +1,2 @@
 # Sort_Proj
-Homework 6 of Alexander Singaevsky. File sorter.
+Homework 7 of Alexander Singaevsky. File sorter package. 
